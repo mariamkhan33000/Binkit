@@ -5,6 +5,7 @@ import express from 'express'
  import helmet from 'helmet'
  import connectedDb from './config/db.js';
  import cookieParser from 'cookie-parser';
+ import userRoute from './routes/userRoute.js'
  dotenv.config()
  
  const PORT = process.env.PORT || 4001;
@@ -21,6 +22,8 @@ import express from 'express'
      crossOriginEmbedderPolicy : false
  }))
  
+
+ app.use('/api/user', userRoute)
  
  app.listen(PORT, () => {
      console.log(`The server is connecting at ${PORT} Successfully . . . . . .`)
